@@ -21,8 +21,15 @@ class CloudProvider extends Model
     ];
 
     public function connect(){
-        return Http::withToken("$this->api_token")
+        if ($this->provider=='hetzner'){
+            return Http::withToken("$this->api_token")
                 ->get("https://api.hetzner.cloud/v1/servers");
+        }
+        elseif ($this->provider=='digitalocean'){
+            return Http::withToken("$this->api_token")
+                ->get("https://api.digitalocean.com/v2/droplets");
+        }
+        
     }
 
     protected function apiToken(): Attribute
