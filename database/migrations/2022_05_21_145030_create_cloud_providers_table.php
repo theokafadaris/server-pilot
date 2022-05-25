@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('cloud_providers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('api_token');
+            $table->string('provider');
+            $table->text('api_token');
+            $table->boolean('is_connected')->default(false);
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

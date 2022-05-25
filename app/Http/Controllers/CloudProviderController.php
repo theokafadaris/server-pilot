@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cloud_provider;
+use App\Models\CloudProvider;
 use Illuminate\Http\Request;
 
 class CloudProviderController extends Controller
@@ -14,7 +14,7 @@ class CloudProviderController extends Controller
      */
     public function index()
     {
-        //
+        return view('cloud_providers.index');
     }
 
     /**
@@ -41,10 +41,10 @@ class CloudProviderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cloud_provider  $cloud_provider
+     * @param  \App\Models\CloudProvider  $cloud_provider
      * @return \Illuminate\Http\Response
      */
-    public function show(Cloud_provider $cloud_provider)
+    public function show(CloudProvider $cloud_provider)
     {
         //
     }
@@ -52,10 +52,10 @@ class CloudProviderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cloud_provider  $cloud_provider
+     * @param  \App\Models\CloudProvider  $cloud_provider
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cloud_provider $cloud_provider)
+    public function edit(CloudProvider $cloud_provider)
     {
         //
     }
@@ -64,10 +64,10 @@ class CloudProviderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cloud_provider  $cloud_provider
+     * @param  \App\Models\CloudProvider  $cloud_provider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cloud_provider $cloud_provider)
+    public function update(Request $request, CloudProvider $cloud_provider)
     {
         //
     }
@@ -75,10 +75,10 @@ class CloudProviderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cloud_provider  $cloud_provider
+     * @param  \App\Models\CloudProvider  $cloud_provider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cloud_provider $cloud_provider)
+    public function destroy(CloudProvider $cloud_provider)
     {
         //
     }

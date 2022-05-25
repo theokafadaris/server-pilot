@@ -34,7 +34,8 @@
                 {{ $slot }}
             </main>
         </div>
-        <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
+        
         @livewireScripts
+        <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
     </body>
 </html>
