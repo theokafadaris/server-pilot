@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(CloudProvider::class);
     }
+    public function ssh_keys()
+    {
+        return $this->hasMany(SshKey::class);
+    }
 }

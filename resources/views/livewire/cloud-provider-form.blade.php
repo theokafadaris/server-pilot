@@ -42,7 +42,7 @@
                 <div class="mb-6">
                     <label for="provider" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select
                         a Cloud Provider</label>
-                    <select wire:model="provider"
+                    <select wire:model.lazy="provider"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="" selected>Choose a Provider</option>
                         @foreach($cloud_providers as $cloud_provider=>$data)
@@ -57,7 +57,7 @@
                 <div class="mb-6">
                     <label for="name"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
-                    <input type="text" wire:key="name" wire:model='name'
+                    <input type="text" wire:key="name" wire:model.defer='name'
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     @if($errors->has('name'))
                     <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{
@@ -67,7 +67,7 @@
                 <div class="mb-6">
                     <label for="api_token" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">API
                         Token</label>
-                    <input wire:model='api_token' wire:key="api_token" type="password"
+                    <input wire:model.defer='api_token' wire:key="api_token" type="password"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     @if($errors->has('api_token'))
                     <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{

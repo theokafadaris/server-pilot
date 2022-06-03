@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CloudProviderController;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,12 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard',[DashboardController::class, 'index'] )->name('dashboard');
+    Route::prefix('account')->group(function () {
+        Route::get('/authentication',[AccountController::class, 'authentication'] )->name('authentication');
+        Route::get('/ssh-keys',[AccountController::class, 'sshKeys'] )->name('ssh-keys');
+    });
+    
+    
 
     Route::get('/cloud_providers',[CloudProviderController::class, 'index'] )->name('cloud_providers');
 });
