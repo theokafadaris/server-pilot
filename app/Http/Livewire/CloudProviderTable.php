@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class CloudProviderTable extends Component
 {
-    protected $listeners = ['refreshTable' => 'render'];
+    protected $listeners = ['refreshCloudProviderTable' => 'render'];
 
     public function render()
     {

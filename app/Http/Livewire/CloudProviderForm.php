@@ -9,7 +9,15 @@ class CloudProviderForm extends Component
 {
     public  $provider_id, $provider, $name, $api_token;
 
-    protected $listeners = ['editProvider'];
+    protected $listeners = [
+        'editProvider'=>'edit'
+    ];
+
+    protected $rules = [
+        'name' => 'required',
+        'api_token' => 'required',
+        'provider' => 'required'
+    ];
 
     public function render()
     {
@@ -19,7 +27,7 @@ class CloudProviderForm extends Component
         ]);
     }
 
-    public function editProvider($id)
+    public function edit($id)
     {
         $cloud_provider = CloudProvider::find($id);
         $this->provider_id = $cloud_provider->id;
@@ -27,13 +35,6 @@ class CloudProviderForm extends Component
         $this->name = $cloud_provider->name;
         $this->api_token = $cloud_provider->api_token;
     }
-
-
-    protected $rules = [
-        'name' => 'required',
-        'api_token' => 'required',
-        'provider' => 'required'
-    ];
 
     public function updated($propertyName)
     {
@@ -49,7 +50,7 @@ class CloudProviderForm extends Component
             $validatedData['is_connected'] = false;
             $cloud_provider->update($validatedData);
             $this->reset();
-            $this->emit('refreshTable');
+            $this->emit('refreshCloudProviderTable');
             session()->flash('message', 'Cloud Provider '.ucfirst($cloud_provider->provider) .' with name "'.$cloud_provider->name.'" updated');
         }
         else{
@@ -57,7 +58,7 @@ class CloudProviderForm extends Component
             $cloud_provider->user_id = auth()->user()->id;
             $cloud_provider->save();
             $this->reset();
-            $this->emit('refreshTable');
+            $this->emit('refreshCloudProviderTable');
             session()->flash('message', 'Cloud Provider '.ucfirst($cloud_provider->provider) .' with name "'.$cloud_provider->name.'" created');
         }
     }
